@@ -10,6 +10,7 @@
 	<table class="table">
 		<thead>
 		<tr>
+			<th>no</th>
 			<th>id</th>
 			<th>title</th>
 					</tr>
@@ -23,7 +24,7 @@
 					<td>{{ $matakuliah->title or 'title kosong'}}</td>
 					<td>
 						<div class="btn-group" role="group">
-							<a href="{{url('matakuliah/edit/'.$matakuliah)}}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
+							<a href="{{url('matakuliah/edit/'.$matakuliah->id)}}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
 								<i class="fa fa-pencil"></i>
 							</a>
 

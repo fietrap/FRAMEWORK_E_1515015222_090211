@@ -17,10 +17,10 @@ class matakuliahcontroller extends Controller
     public function tambah(){
         return view('matakuliah.tambah');
     }
-    public function simpan(Requests $input){
+    public function simpan(Request $input){
         $matakuliah = new matakuliah;
         $matakuliah->id=$input->id;
-        $ruangan->titlee=$input->title;
+        $matakuliah->title=$input->title;
         $informasi = $matakuliah->save() ? 'berhasil input' : 'gagal simpan';
         return redirect('matakuliah')->with(['informasi'=>$informasi]);
     }
@@ -36,10 +36,11 @@ public function lihat($id){
 
     public function update($id, Request $input){
         $matakuliah = matakuliah::find($id);
-        $input=array_except(Input::all(),'_method');
-        $matakuliah->update($input);
+        $matakuliah ->id=$input->id;
+        $matakuliah ->title=$input->title;
+        $informasi = $matakuliah->save()? 'berhasil update' : 'gagal ya';
 
-        return redirect::route('matakuliah.tambah');
+        return redirect('ruangan')-> with(['informasi'=>$informasi]);
     }
     public function hapus($id){
         $matakuliah = matakuliah::find($id);

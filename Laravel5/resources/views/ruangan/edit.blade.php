@@ -6,8 +6,8 @@
 		<i class="fa text-default fa-chevron-left"></i>
 		</a>Perbraui data Ruangan</strong>
 	</div>
-	{!! form::model($ruangan, ['method' => 'PATCH', 'route' => ['ruangan.update', $ruangan->id],'class' => 'form-horizontal']) !!}
-       			 @include('ruangan/form/form', ['submit_text' => 'Edit Data pengguna'])
+	{!! Form::model($ruangan, ['url' =>'ruangan/edit/'.$ruangan->id,'class'=>'form-horizontal'])!!}
+       			 @include('ruangan.form.form')
 		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-info">
 				<i class="fa fa-save"></i>Perbarui

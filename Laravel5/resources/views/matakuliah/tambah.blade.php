@@ -2,11 +2,12 @@
 @section('container')
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<strong><a href="{{url('matakuliah')}}">
+		<strong><a href="{{url('ruangan')}}">
 		<i style="color: white;" class="fa text-default fa-chevron-left"></i>
 		</a>Tambah data Matakuliah</strong>
 	</div>
-
+{!! Form::open(['class' => 'form-horizontal','url' => 'matakuliah/simpan']) !!}
+        		@include('matakuliah/form/form', ['submit_text' => 'Tambah Data'])
 		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-primary">
 				<i class="fa fa-save"></i>Simpan
@@ -15,8 +16,7 @@
 				<i class="fa fa-undo"></i>ulangi
 			</button>
 		</div>
-		{!! Form::model(new App\matakuliah, ['class' => 'form-horizontal','route' => ['matakuliah.tambah']]) !!}
-        		@include('matakuliah/form/form', ['submit_text' => 'Tambah Data'])
+		
 		{!! Form::close() !!}
 		</div>
 @stop

@@ -2,12 +2,12 @@
 @section('container')
 <div class="panel panel-info">
 	<div class="panel-heading">
-		<strong><a href="{{url('matakuliah')}}">
+		<strong><a href="{{url('ruangan')}}">
 		<i class="fa text-default fa-chevron-left"></i>
 		</a>Perbraui data Matakuliah</strong>
 	</div>
-	{!! form::model($matakuliah, ['method' => 'PATCH', 'route' => ['matakuliah.update', $matakuliah->id],'class' => 'form-horizontal']) !!}
-       			 @include('matakuliah/form/form', ['submit_text' => 'Edit Data Matakuliah'])
+	{!! Form::model($matakuliah, ['url' =>'matakuliah/edit/'.$matakuliah->id,'class'=>'form-horizontal'])!!}
+       			 @include('matakuliah.form.form')
 		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-info">
 				<i class="fa fa-save"></i>Perbarui
