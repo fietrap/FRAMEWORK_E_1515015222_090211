@@ -5,27 +5,33 @@
 	<div class="panel-heading">
 		<strong><a href="{{ url('jadwal_matakuliah') }}">
 		<i style="color:#8a6d3b" class="fa text-default fa-chevron-left"></i>
-		</a>Detail data perkuliahan Mahasiswa</strong>
+		</a>Detail Data Jadwal Mahasiswa</strong>
 	</div>
 	
 	<table class="table">
 		<tr>
-			<td>dosen_matakuiah_id</td>
-			<td>{{$jadwal_matakuliah->dosen_matakuliah_id}}</td>
+			<td>Dosen</td>
+			<td>:</td>
+			<td>{{$jadwal_matakuliah->dosen_matakuliah->dosen->nama}}</td>
 		</tr>
 
 		<tr>
-			<td>mahasiswa_id</td>
+			<td>Mahasiswa</td>
 			<td>:</td>
-			<td>{{ $jadwal_matakuliah->mahasiswa_id}}</td>
+			<td>{{ $jadwal_matakuliah->mahasiswa->nama}}</td>
 		</tr>
 
 		<tr>
-			<td>ruangan_id</td>
+			<td>Ruangan</td>
 			<td>:</td>
-			<td>{{ $jadwal_matakuliah->ruangan_id}}</td>
+			<td>{{ $jadwal_matakuliah->ruangan->title}}</td>
 		</tr>
 
+		<tr>
+			<td>Matakulaih</td>
+			<td>:</td>
+			<td>{{ $jadwal_matakuliah->dosen_matakuliah->matakuliah->title}}</td>
+		</tr>
 
 		<tr>
 			<td class="col-xs-4">Dibuat tanggal</td>

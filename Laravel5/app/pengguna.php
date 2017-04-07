@@ -16,9 +16,9 @@ class pengguna extends Model
 	public function dosen(){
 		return $this->hasOne(dosen::class);
 	}
-
+	/*
 	public function peran(){
 		return $this ->belongsToMany(peran::class);
 	}
-
+	*/
 }

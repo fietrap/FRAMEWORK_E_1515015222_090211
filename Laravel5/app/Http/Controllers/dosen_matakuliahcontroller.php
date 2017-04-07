@@ -8,47 +8,55 @@ use App\Http\Requests;
 use App\dosen;
 use App\dosen_matakuliah;
 use App\matakuliah;
+use App\jadwal_matakuliah;
 use Input;
 use Redirect;
 use informasi;
 
 class dosen_matakuliahcontroller extends Controller
 {
-    public function awal(){
-        return view('dosen_matakuliah.awal',['data'=>dosen_matakuliah::all()]);
-    }
-    public function tambah(){
-        return view('dosen_matakuliah.tambah');
-    }
-    public function simpan(Request $input){
-        $dosen_matakuliah = new dosen_matakuliah;
-        $dosen_matakuliah->dosen_id=$input->dosen_id;
-        $dosen_matakuliah->matakuliah_id=$input->matakuliah_id;
-                $informasi = $dosen_matakuliah->save() ? 'berhasil input' : 'gagal simpan';
-        return redirect('dosen_matakuliah')->with(['informasi'=>$informasi]);
+    public function awal()
+    {
+        $Semua_Dosen_Matakuliah = Dosen_Matakuliah::all();
+        return view('dosen_matakuliah.awal', compact('Semua_Dosen_Matakuliah'));
     }
 
+    public function tambah()
+    {      
+        $dosen = new Dosen;
+        $matakuliah = new Matakuliah;
+        return view('dosen_matakuliah.tambah',compact('dosen','matakuliah'));
+        return $this->simpan();
+    }
+
+    public function simpan(Request $input)
+    {
+        $dosen_matakuliah = new Dosen_Matakuliah($input->only('dosen_id','matakuliah_id'));
+            if($dosen_matakuliah->save()) $this->informasi = "Matakuliad dan Dosen Mengajar berhasil disimpan";
+            return redirect('dosen_matakuliah')->with(['informasi'=>$this->informasi]);
+    }
+    public function lihat($id){
+        $dosen_matakuliah = Dosen_Matakuliah::find($id);
+        return view('dosen_matakuliah.lihat',compact('dosen_matakuliah'));
+    }
     public function edit($id){
-        $dosen_matakuliah=dosen_matakuliah::find($id);
-        return view('dosen_matakuliah.edit')->with(array('dosen_matakuliah'=>$dosen_matakuliah));
+        $dosen_matakuliah = Dosen_Matakuliah::find($id);
+        $dosen = new Dosen;
+        $matakuliah = new Matakuliah;
+        return view('dosen_matakuliah.edit',compact('dosen','matakuliah','dosen_matakuliah'));
     }
-public function lihat($id){
-        $dosen_matakuliah=dosen_matakuliah::find($id);
-        return view('dosen_matakuliah.lihat')->with(array('dosen_matakuliah'=>$dosen_matakuliah));
+    public function update($id,Request $input)
+    {
+        $dosen_matakuliah = Dosen_Matakuliah::find($id);
+        $dosen_matakuliah->fill($input->only('dosen_id','matakuliah_id'));
+        if($dosen_matakuliah->save()) $this->informasi = "Matakuliad dan Dosen Mengajar berhasil diperbarui";
+        return redirect('dosen_matakuliah')->with(['informasi'=>$this->informasi]);
     }
-
-    public function update($id, Request $input){
-        $dosen_matakuliah = dosen_matakuliah::find($id);
-        $dosen_matakuliah ->dosen_id=$input->dosen_id;
-        $dosen_matakuliah ->matakuliah_id=$input->matakuliah_id;
-        $informasi = $dosen_matakuliah->save()? 'berhasil update' : 'gagal ya';
-
-        return redirect('dosen_matakuliah')-> with(['informasi'=>$informasi]);
-    }
-    public function hapus($id){
-        $dosen_matakuliah = dosen_matakuliah::find($id);
-        $informasi = $dosen_matakuliah->delete() ? 'berhasil hapus data' : 'gagal hapus data';
-        return redirect('dosen_matakuliah')->with(['informasi'=>$informasi]);
+    public function hapus($id,Request $input)
+    {
+        $dosen_matakuliah = Dosen_Matakuliah::find($id);
+        if($dosen_matakuliah->delete()) $this->informasi = "Matakuliad dan Mahasiswa berhasil dihapus";
+        return redirect('dosen_matakuliah')-> with(['informasi'=>$this->informasi]);
     }
 
     }

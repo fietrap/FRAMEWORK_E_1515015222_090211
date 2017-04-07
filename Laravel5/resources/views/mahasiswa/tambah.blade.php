@@ -8,8 +8,8 @@
 	</div>
 
 		
-		{!! Form::open(['class' => 'form-horizontal','url' => 'mahasiswa/simpan']) !!}
-        		@include('mahasiswa/form/form', ['submit_text' => 'Tambah Data'])
+		{!! Form::open(['url' => 'mahasiswa/simpan','class' => 'form-horizontal']) !!}
+        		@include('mahasiswa.form.form')
         		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-primary">
 				<i class="fa fa-save"></i>Simpan

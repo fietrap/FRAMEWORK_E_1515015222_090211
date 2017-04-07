@@ -4,7 +4,7 @@
 	<div class="panel-heading">
 		<strong><a href="{{url('dosen_matakuliah')}}">
 		<i style="color: white;" class="fa text-default fa-chevron-left"></i>
-		</a>Tambah data Dosen yang Mnegajar</strong>
+		</a>Tambah data Dosen yang Mengajar</strong>
 	</div>
 
 		

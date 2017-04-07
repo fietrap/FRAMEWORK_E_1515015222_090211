@@ -18,19 +18,18 @@
 		</thead>
 		<tbody>
 			<?php $x=1;?>
-			@foreach ($data as $dosen)
+			@foreach ($semuaDosen as $dosen)
 				<tr>
 					<td>{{ $x++ }}</td>
-					<td>{{ $dosen->id or 'id kosong'}}</td>
-					<td>{{ $dosen->nama or 'nama kosong'}}</td>
-					<td>{{ $dosen->nipp or 'nipp kosong'}}</td>
+					<td>{{$dosen->nama  or 'nama kosong'}}</td>
+					<td>{{ $dosen->nipp or 'nip kosong'}}</td>
 					<td>
 						<div class="btn-group" role="group">
-							<a href="{{url('dosen/edit/'.$dosen->id)}}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
+							<a href="{{url('dosen/edit/'.$dosen->id)}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
 								<i class="fa fa-pencil"></i>
 							</a>
 
-							<a href="{{url('dosen/'.$dosen->id)}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat">
+							<a href="{{url('dosen/'.$dosen->id)}}" class="btn btn-warning btn-xs" data-toggle="tooltip" data-placement="top" title="Lihat">
 								<i class="fa fa-eye"></i>
 							</a>
 

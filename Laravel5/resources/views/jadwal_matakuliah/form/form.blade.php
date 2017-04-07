@@ -1,17 +1,20 @@
 <div class="form-group">
-	<label class="col-sm-2 control-label">dosen_matakuliah_id</label>
+	<label class="col-sm-2 control-label" id="mahasiswa_id">Mahasiswa</label>
 	<div class="col-sm-10">
-	{!! form::text('dosen_matakuliah_id',null,['class'=>'form-control','placeholder'=>"dosen_matakuliah_id"]) !!}
+		{!! Form::select('mahasiswa_id', $mahasiswa->listMahasiswaDanNim(),null,['class'=>'form-control' ,'id'=>'mahasiswa_id','placeholder'=>"Mahasiswa"]) !!}	
+	</div>
 </div>
-<div class="form-group">
-	<label class="col-sm-2 control-label">mahasiswa_id</label>
-	<div class="col-sm-10">
-		{!! form::text('mahasiswa_id',null,['class'=>'form-control','placeholder'=>"mahasiwa_id"]) !!}
-	</div>
-<div class="form-group">
-	<label class="col-sm-2 control-label">ruangan_id</label>
-	<div class="col-sm-10">
-		{!! form::text('ruangan_id',null,['class'=>'form-control','placeholder'=>"ruangan_id"]) !!}
-	</div>
 
+<div class="form-group">
+	<label class="col-sm-2 control-label" id="dosen_matakuliah_id">Matakuliah</label>
+	<div class="col-sm-10">
+		{!! Form::select('dosen_matakuliah_id',$dosen_matakuliah->listDosenDanMatakuliah(),null,['class'=>'form-control' ,'id'=>'dosen_matakuliah_id','placeholder'=>"Matakuliah"]) !!}	
+	</div>
+</div>
+
+<div class="form-group">
+	<label class="col-sm-2 control-label" id="ruangan_id">Ruangan</label>
+	<div class="col-sm-10">
+		{!! Form::select('ruangan_id',$ruangan->lists('title','id'),null,['class'=>'form-control', 'id'=>'ruangan_id','placeholder'=>"Ruangan"]) !!}
+	</div>
 </div>
