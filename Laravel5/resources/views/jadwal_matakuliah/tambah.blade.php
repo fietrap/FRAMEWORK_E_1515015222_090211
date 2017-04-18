@@ -7,7 +7,7 @@
 		</a>Tambah Data Jadwal Mahasiswa</strong>
 	</div>		
 		{!! Form::open(['class' => 'form-horizontal','url' => 'jadwal_matakuliah/simpan']) !!}
-        		@include('jadwal_matakuliah.form', ['submit_text' => 'Tambah Data'])
+        		@include('jadwal_matakuliah.form.form', ['submit_text' => 'Tambah Data'])
         		<div style="width: 100%;text-align: right;">
 			<button class="btn btn-primary">
 				<i class="fa fa-save"></i>Simpan

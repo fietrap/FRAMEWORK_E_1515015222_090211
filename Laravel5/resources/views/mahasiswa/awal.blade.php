@@ -14,6 +14,7 @@
 			<th>id</th>
 			<th>nama</th>
 			<th>nim</th>
+			<th>alamat</th>
 		</tr>
 		</thead>
 		<tbody>
@@ -21,8 +22,10 @@
 			@foreach ($semuaMahasiswa as $mahasiswa)
 				<tr>
 					<td>{{ $x++ }}</td>
+					<td>{{$mahasiswa-> id or 'id kosong'}}</td>
 					<td>{{$mahasiswa->nama  or 'nama kosong'}}</td>
 					<td>{{ $mahasiswa->nim or 'nip kosong'}}</td>
+					<td>{{$mahasiswa->alamat or 'alamat kosong'}}</td>
 					<td>
 						<div class="btn-group" role="group">
 							<a href="{{url('mahasiswa/edit/'.$mahasiswa->id)}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="Ubah">
