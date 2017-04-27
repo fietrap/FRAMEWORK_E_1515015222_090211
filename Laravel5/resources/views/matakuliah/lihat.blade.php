@@ -5,7 +5,7 @@
 	<div class="panel-heading">
 		<strong><a href="{{ url('matakuliah') }}">
 		<i style="color:#8a6d3b" class="fa text-default fa-chevron-left"></i>
-		</a>Detail data Ruangan</strong>
+		</a>Detail data Matakuliah</strong>
 	</div>
 	
 	<table class="table">

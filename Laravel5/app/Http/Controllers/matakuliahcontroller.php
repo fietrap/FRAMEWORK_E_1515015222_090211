@@ -30,7 +30,7 @@ class matakuliahcontroller extends Controller
         return view('matakuliah.edit', compact('matakuliah'));
     }
 public function lihat($id){
-        $ruangan=ruangan::find($id);
+        $matakuliah=matakuliah::find($id);
         return view('matakuliah.lihat')->with(array('matakuliah'=>$matakuliah));
     }
 
@@ -40,7 +40,7 @@ public function lihat($id){
         $matakuliah ->title=$input->title;
         $informasi = $matakuliah->save()? 'berhasil update' : 'gagal ya';
 
-        return redirect('ruangan')-> with(['informasi'=>$informasi]);
+        return redirect('matakuliah')-> with(['informasi'=>$informasi]);
     }
     public function hapus($id){
         $matakuliah = matakuliah::find($id);
